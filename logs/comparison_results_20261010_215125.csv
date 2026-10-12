@@ -1,0 +1,19 @@
+# Summary
+total_active_windows,105
+adaptive_normal,90
+adaptive_warning,2
+adaptive_congested,13
+fixed_normal,92
+fixed_warning,2
+fixed_congested,11
+adaptive_false_positives,2
+fixed_false_positives,0
+agreement_pct,96.2
+adaptive_events_detected,1
+fixed_events_detected,1
+matched_events,1
+avg_detection_delay_s,-2.0
+
+# Congestion Event Details
+event_id,adp_start,adp_end,adp_duration_s,fix_start,fix_end,fix_duration_s,detection_delay_s,matched
+1,60,72,13,62,72,11,-2,True

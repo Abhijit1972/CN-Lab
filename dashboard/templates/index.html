@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adaptive Network Monitor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="pulse-dot" id="live-indicator"></div>
+                    <h1>Network Monitor</h1>
+                </div>
+                <div class="status-badge" id="current-status">WARMUP</div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="grid-container">
+            <!-- Summary Cards -->
+            <section class="summary-cards">
+                <div class="card">
+                    <h3>Active Windows</h3>
+                    <div class="value" id="val-active-windows">0</div>
+                </div>
+                <div class="card">
+                    <h3>Avg Throughput</h3>
+                    <div class="value" id="val-avg-bw">0.0</div>
+                    <div class="unit">KB/s</div>
+                </div>
+                <div class="card">
+                    <h3>Peak Throughput</h3>
+                    <div class="value" id="val-peak-bw">0.0</div>
+                    <div class="unit">KB/s</div>
+                </div>
+                <div class="card">
+                    <h3>Congestion Events</h3>
+                    <div class="value" id="val-events">0</div>
+                    <div class="subtext"><span id="val-event-time">0</span>s total</div>
+                </div>
+            </section>
+
+            <!-- Charts Row 1 -->
+            <section class="charts-row">
+                <div class="chart-container span-2">
+                    <div class="chart-header">
+                        <h2>Throughput (KB/s)</h2>
+                        <span class="live-val" id="live-throughput">0.0</span>
+                    </div>
+                    <div class="canvas-wrapper">
+                        <canvas id="throughputChart"></canvas>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <div class="chart-header">
+                        <h2>Packet Rate (pkt/s)</h2>
+                        <span class="live-val" id="live-rate">0</span>
+                    </div>
+                    <div class="canvas-wrapper">
+                        <canvas id="rateChart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Charts Row 2 -->
+            <section class="charts-row">
+                <div class="chart-container">
+                    <div class="chart-header">
+                        <h2>Protocol Share</h2>
+                    </div>
+                    <div class="canvas-wrapper">
+                        <canvas id="protocolChart"></canvas>
+                    </div>
+                </div>
+                <div class="chart-container span-2">
+                    <div class="chart-header">
+                        <h2>TCP Retransmission Ratio</h2>
+                        <span class="live-val" id="live-retx">0.000</span>
+                    </div>
+                    <div class="canvas-wrapper">
+                        <canvas id="retxChart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Alerts Table -->
+            <section class="alerts-section">
+                <h2>Recent Alerts</h2>
+                <div class="table-container">
+                    <table id="alerts-table">
+                        <thead>
+                            <tr>
+                                <th>Time</th>
+                                <th>Level</th>
+                                <th>Triggered Parameters</th>
+                                <th>Throughput (KB/s)</th>
+                                <th>Rate (pkt/s)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

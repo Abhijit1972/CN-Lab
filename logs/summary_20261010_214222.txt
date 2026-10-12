@@ -1,0 +1,18 @@
+============================================================
+  ADAPTIVE NETWORK MONITOR  –  END-OF-RUN SUMMARY
+============================================================
+  Run started  : 2026-10-10T21:40:56
+  Run ended    : 2026-10-10T21:42:21
+  Duration     : 86 seconds
+
+  Total packets (approx)   : 110,647
+  Average throughput       : 1812.66 KB/s
+  Peak throughput          : 4671.09 KB/s
+
+  Congestion events        : 1
+  Total congestion time    : 49 s
+  Average congestion dur.  : 49.0 s
+
+  Individual events (start row, duration):
+    Event 1: row 17 (2026-10-10T21:41:13), 49 s
+============================================================
